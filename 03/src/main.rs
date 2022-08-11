@@ -84,8 +84,8 @@ fn part2(args: Args) -> (u64, u64) {
     println!("Part2:");
     let mut numbers: Vec<i64> = Vec::new();
     let mut msb = 0;
-    let mut ox;
-    let mut co2;
+    let ox;
+    let co2;
 
     let file = File::open(args.input).unwrap();
     if let lines = io::BufReader::new(file).lines() {
@@ -111,6 +111,7 @@ fn part2(args: Args) -> (u64, u64) {
         ox_cand.retain(|&x| (x>>(filteridx -1) & 1 == decider));
         filteridx -= 1;
     }
+
     #[cfg(test)]
     println!("ox len: {}", ox_cand.len());
     ox = ox_cand[0];
